@@ -1,8 +1,5 @@
-var _; //globals
-
-describe("About Applying What We Have Learnt", function() {
-
-  var products;
+describe("지금까지 배운 것들에 관하여", function() {
+  let products;
 
   beforeEach(function () {
     products = [
@@ -14,60 +11,36 @@ describe("About Applying What We Have Learnt", function() {
     ];
   });
 
-  /*********************************************************************************/
+  it("견과류나 버섯이 들어가있지 않은 피자를 찾아야합니다.", function () {
+    let productsICanEat = [];
 
-  it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (imperative)", function () {
+    for (let i = 0; i < products.length; i+=1) {
+      let hasMushrooms = false;
 
-    var i,j,hasMushrooms, productsICanEat = [];
+      if (products[i].containsNuts === false) {
+          for (let j = 0; j < products[i].ingredients.length; j+=1) {
+              if (products[i].ingredients[j] === "mushrooms") {
+                hasMushrooms = true;
+              }
+          }
 
-    for (i = 0; i < products.length; i+=1) {
-        if (products[i].containsNuts === false) {
-            hasMushrooms = false;
-            for (j = 0; j < products[i].ingredients.length; j+=1) {
-               if (products[i].ingredients[j] === "mushrooms") {
-                  hasMushrooms = true;
-               }
-            }
-            if (!hasMushrooms) productsICanEat.push(products[i]);
-        }
+          if (!hasMushrooms) productsICanEat.push(products[i]);
+      }
     }
 
     expect(productsICanEat.length).toBe(FILL_ME_IN);
   });
 
-  it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
+  it("견과류나 버섯이 들어가있지 않은 피자를 찾아야합니다.(Array method)", function () {
+      let productsICanEat = [];
 
-      var productsICanEat = [];
-
-      /* solve using filter() & all() / any() */
+      /* 위의 테스트를 array method filter를 활용해 바꾸어 보세요*/
 
       expect(productsICanEat.length).toBe(FILL_ME_IN);
   });
 
-  /*********************************************************************************/
-
-  it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (imperative)", function () {
-
-    var sum = 0;
-    for(var i=1; i<1000; i+=1) {
-      if (i % 3 === 0 || i % 5 === 0) {
-        sum += i;
-      }
-    }
-
-    expect(sum).toBe(FILL_ME_IN);
-  });
-
-  it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
-
-    var sum = FILL_ME_IN;    /* try chaining range() and reduce() */
-
-    expect(233168).toBe(FILL_ME_IN);
-  });
-
-  /*********************************************************************************/
-   it("should count the ingredient occurrence (imperative)", function () {
-    var ingredientCount = { "{ingredient name}": 0 };
+  it("위의 피자들을 만드는데 어떤 재료가 얼만큼 쓰였는지 찾아야합니다.", function () {
+    let ingredientCount = { "{ingredient name}": 0 };
 
     for (i = 0; i < products.length; i+=1) {
         for (j = 0; j < products[i].ingredients.length; j+=1) {
@@ -78,15 +51,37 @@ describe("About Applying What We Have Learnt", function() {
     expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
   });
 
-  it("should count the ingredient occurrence (functional)", function () {
-    var ingredientCount = { "{ingredient name}": 0 };
+  it("위의 피자들을 만드는데 어떤 재료가 얼만큼 쓰였는지 찾아야합니다.(Array method)", function () {
+    let ingredientCount = { "{ingredient name}": 0 };
 
-    /* chain() together map(), flatten() and reduce() */
+    /* 위의 테스트를 map 과 reduce를 연결해 바꾸어 보세요 */
 
     expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
   });
 
+
   /*********************************************************************************/
+
+  it("1000 보다 작은 모든 3 또는 5의 배수의 합을 찾아야합니다.", function () {
+    let sum = 0;
+
+    for(var i=1; i<1000; i+=1) {
+      if (i % 3 === 0 || i % 5 === 0) {
+        sum += i;
+      }
+    }
+
+    expect(sum).toBe(FILL_ME_IN);
+  });
+
+  it("1000 보다 작은 모든 3 또는 5의 배수의 합을 찾아야합니다.(Array method)", function () {
+    let sum = FILL_ME_IN;
+    
+    /* 위의 테스트를 array method reduce를 활용해 바꾸어 보세요*/
+
+    expect(233168).toBe(FILL_ME_IN);
+  });
+
   /* UNCOMMENT FOR EXTRA CREDIT */
   /*
   it("should find the largest prime factor of a composite number", function () {

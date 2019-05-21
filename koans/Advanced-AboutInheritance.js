@@ -18,26 +18,26 @@ function SwedishChef(age, hobby, mood) {
 
 SwedishChef.prototype = new Muppet();
 
-describe("About inheritance", function() {
+describe("Inheritance에 관하여", function() {
   beforeEach(function(){
     this.muppet = new Muppet(2, "coding");
   	this.swedishChef = new SwedishChef(2, "cooking", "chillin");
   });
 
-  it("should be able to call a method on the derived object", function() {
+  it("자식 class의 method를 가지고 있어야합니다.", function() {
     expect(this.swedishChef.cook()).toEqual(FILL_ME_IN);
   });
 
-  it("should be able to call a method on the base object", function() {
+  it("부모 class의 method를 가지고 있어야합니다.", function() {
     expect(this.swedishChef.answerNanny()).toEqual(FILL_ME_IN);
   });
 
-  it("should set constructor parameters on the base object", function() {
+  it("부모 class의 property를 가지고 있어야합니다.", function() {
     expect(this.swedishChef.age).toEqual(FILL_ME_IN);
     expect(this.swedishChef.hobby).toEqual(FILL_ME_IN);
   });
 
-  it("should set constructor parameters on the derived object", function() {
+  it("자식 class의 property를 가지고 있어야합니다.", function() {
     expect(this.swedishChef.mood).toEqual(FILL_ME_IN);
   });
 });
@@ -58,32 +58,27 @@ function Gonzo(age, hobby, trick) {
   }
 }
 
-//no longer need to call the Muppet (base type) constructor
 Gonzo.prototype = Muppet.prototype.beget();
-//note: if you're wondering how this line affects the below tests, the answer is that it doesn't.
-//however, it does do something interesting -- it makes this work:
-//  var g = new Gonzo(...);
-//  g instanceOf Muppet //true
 
-describe("About Crockford's inheritance improvement", function() {
+describe("Prototype을 이용한 상속에 관하여", function() {
   beforeEach(function(){
     this.gonzo = new Gonzo(3, "daredevil performer", "eat a tire");
   });
 
-  it("should be able to call a method on the derived object", function() {
+  it("자식 class의 method를 가지고 있어야합니다.", function() {
     expect(this.gonzo.doTrick()).toEqual(FILL_ME_IN);
   });
 
-  it("should be able to call a method on the base object", function() {
+  it("부모 class의 method를 가지고 있어야합니다.", function() {
     expect(this.gonzo.answerNanny()).toEqual(FILL_ME_IN);
   });
 
-  it("should set constructor parameters on the base object", function() {
+  it("부모 class의 property를 가지고 있어야합니다.", function() {
     expect(this.gonzo.age).toEqual(FILL_ME_IN);
     expect(this.gonzo.hobby).toEqual(FILL_ME_IN);
   });
 
-  it("should set constructor parameters on the derived object", function() {
+  it("자식 class의 property를 가지고 있어야합니다.", function() {
     expect(this.gonzo.trick).toEqual(FILL_ME_IN);
   });
 });
