@@ -55,7 +55,7 @@ describe("Function에 관해서", function() {
     expect(increaseBy3(10) + increaseBy5(10)).toBe(FILL_ME_IN);
   });
 
-  it("함수에서 arguments가 어떻게 쓰이는지 학습합니다.", function () {
+  it("함수에서 전달인자를 다루는법을 학습합니다.", function () {
 
     function returnFirstArg(firstArg) {
       return firstArg;
@@ -69,14 +69,14 @@ describe("Function에 관해서", function() {
 
     expect(returnSecondArg("only give first arg")).toBe(FILL_ME_IN);
 
-    function returnAllArgs() {
-      const argsArray = [];
+    function returnAllArgs(...args) {
+      let argmentsText = '';
 
-      for (let i = 0; i < arguments.length; i += 1) {
-        argsArray.push(arguments[i]);
+      for (let i = 0; i < arg.length; i += 1) {
+        argmentsText = argmentsText + agr[i];
       }
 
-      return argsArray.join(",");
+      return argmentsText;
     }
 
     expect(returnAllArgs("first", "second", "third")).toBe(FILL_ME_IN);

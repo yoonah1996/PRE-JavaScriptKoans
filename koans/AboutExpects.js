@@ -3,7 +3,7 @@ describe("Expect에 관해서", function() {
   // 지금 부터 expect의 사용법을 학습합니다.
   // 우리가 테스트 해볼 값이 true인지를 검사합니다.
   it("테스트 하고 싶은 값이 true 인지를 검사합니다.", function() {
-    expect(false).toBeTruthy();
+    expect(false).toBeTruthy(); // 이 코드는 우리가 기대하는 값이 true이여야 한다는 뜻입니다.
     // expect(테스트 하고 싶은 값)
   });
 
