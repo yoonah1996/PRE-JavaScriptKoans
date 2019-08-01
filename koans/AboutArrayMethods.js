@@ -1,5 +1,4 @@
 describe("Array Method에 관하여", function () {
-
   it("'filter' method에 관해 학습합니다.", function () {
     let numbers = [1,2,3];
 
@@ -77,6 +76,4 @@ describe("Array Method에 관하여", function () {
 
     expect(result).toEqual(FILL_ME_IN);
   });
-
 });
-
