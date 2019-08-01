@@ -70,13 +70,13 @@ describe("Function에 관해서", function() {
     expect(returnSecondArg("only give first arg")).toBe(FILL_ME_IN);
 
     function returnAllArgs(...args) {
-      let argmentsText = '';
+      let argumentsText = '';
 
-      for (let i = 0; i < arg.length; i += 1) {
-        argmentsText = argmentsText + agr[i];
+      for (let i = 0; i < args.length; i += 1) {
+        argumentsText = argumentsText + args[i];
       }
 
-      return argmentsText;
+      return argumentsText;
     }
 
     expect(returnAllArgs("first", "second", "third")).toBe(FILL_ME_IN);
