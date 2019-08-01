@@ -1,35 +1,35 @@
-describe("About Mutability", function() {
+describe("Private, Public에 관하여", function() {
 
-  it("should expect object properties to be public and mutable", function () {
-    var aPerson = {firstname: "John", lastname: "Smith" };
+  it("dot을 사용해 만든 property는 public하고 변경가능합니다.", function () {
+    let aPerson = {firstname: "John", lastname: "Smith" };
     aPerson.firstname = "Alan";
 
     expect(aPerson.firstname).toBe(FILL_ME_IN);
   });
 
-  it("should understand that constructed properties are public and mutable", function () {
-    function Person(firstname, lastname)
-    {
+  it("this를 이용해 만든 property는 public하고 변경가능합니다.", function () {
+    function Person(firstname, lastname) {
       this.firstname = firstname;
       this.lastname = lastname;
     }
-    var aPerson = new Person ("John", "Smith");
+    let aPerson = new Person ("John", "Smith");
     aPerson.firstname = "Alan";
 
     expect(aPerson.firstname).toBe(FILL_ME_IN);
   });
 
-  it("should expect prototype properties to be public and mutable", function () {
-    function Person(firstname, lastname)
-    {
+  it("prototype을 사용해 만든 property는 public하고 변경가능합니다.", function () {
+    function Person(firstname, lastname) {
       this.firstname = firstname;
       this.lastname = lastname;
     }
+
     Person.prototype.getFullName = function () {
       return this.firstname + " " + this.lastname;
     };
 
-    var aPerson = new Person ("John", "Smith");
+    let aPerson = new Person ("John", "Smith");
+
     expect(aPerson.getFullName()).toBe(FILL_ME_IN);
 
     aPerson.getFullName = function () {
@@ -39,16 +39,16 @@ describe("About Mutability", function() {
     expect(aPerson.getFullName()).toBe(FILL_ME_IN);
   });
 
-  it("should know that variables inside a constructor and constructor args are private", function () {
-    function Person(firstname, lastname)
-    {
-      var fullName = firstname + " " + lastname;
+  it("closure를 사용해 만든 property는 private하고 변경이 불가능합니다.", function () {
+    function Person(firstname, lastname) {
+      let fullName = firstname + " " + lastname;
 
       this.getFirstName = function () { return firstname; };
       this.getLastName = function () { return lastname; };
       this.getFullName = function () { return fullName; };
     }
-    var aPerson = new Person ("John", "Smith");
+
+    let aPerson = new Person ("John", "Smith");
 
     aPerson.firstname = "Penny";
     aPerson.lastname = "Andrews";
