@@ -34,15 +34,15 @@ describe("Array Method에 관하여", function () {
 
   it("'forEach' method에 관해 학습합니다.", function () {
     let numbers = [1,2,3];
-    let msg = "";
+    let result = [];
 
     let isEven = function (item) {
-      msg += (item % 2) === 0;
+      result.push((item % 2) === 0);
     };
 
     numbers.forEach(isEven);
 
-    expect(msg).toEqual(FILL_ME_IN);
+    expect(result).toEqual(FILL_ME_IN);
     expect(numbers).toEqual(FILL_ME_IN);
   });
 
