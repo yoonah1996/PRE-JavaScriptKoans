@@ -85,6 +85,7 @@ describe("Object에 관해서", function () {
     expect("henchman" in meglomaniac).toBe(false);
   });
 
+  
   it("prototype를 사용해 모든 instance 객체에 property와 method 추가하는 법을 확인합니다.", function () {
     function Circle(radius) {
       this.radius = radius;
